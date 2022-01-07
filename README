@@ -1,0 +1,54 @@
+README : Dimitris Skordoulis 1115201500145,sdi1500145
+
+Arxeia ths askhshs: bitcoin.c, bitcoin.h, Makefile, README.
+
+Compilation: make
+Run: ./bitcoin (+ arguments)
+Clean: make clean
+
+Entoles pou ulopoiountai: requestTransaction,walletStatus,bitCoinStatus,traceCoin - opws zhthtai
+			  requestTransactions - mono to kommati pou diavazei apo file
+			  findPayments,Earnings - prwta h ektypwsh twn transactions kai meta tou synolikou posou
+			  exit - elpizw na kanw swsto free tin allocated memory
+
+getopt: xrhsh grammatwn s,r anti gia h1,h2
+
+Domes:
+
+Hash tables: 
+xrhsh aplis hash function pou xrhsimopoiei ton Ascii arithmo tou stoixeiou pou theloume na valoume ston ht.
+
+ektos twn 2 ht pou zhtountai apo thn askisi xrisimopoiw alla 3 ta opoioa periehoun 
+1o) ta WalletElement (ousiastika o 1os ht einai h domh wallet)
+2o) tis rizes twn dentrwn: TreeElement
+3o) tis transactions: TransacElement
+
+Kai oi 3 einai pinakes me deiktes pros ta antistoixa stoixeia. An parapanw tou enos stoixeiou prepei na topothetithoun stin idia thesi dhmiourgoun mia lista.
+
+Oi alloi dyo ht pou zhtountai, apotelountai apo deiktes se buckets. Pali an toulaxiston  2 buckets prepei na mpoun sthn idia thesi tou ht dhmiourgoun mia lista.
+
+Buckets: ta buckets apotelounai apo: 1 deikth se epomeno bucket + enan pinaka apo BucketEls(kathe BucketEl exei ena walletid + pointer se lista).
+Gia na vroume to megethos tou bucket, pernoume to argument ths main kai 1on)afairoume to: sizeof(BucketPtr), 2on)kratame pyliko ths diaireshs me to sizeof(struct BucketEl).
+Epaidi to megethos tou BucketPtr=8bytes kai tou BucketEl=64bytes, prokeimenou na dhmiourghthei ena bucket to megethos pou dinoume tha prepei na einai toulaxiston 72(bytes).
+
+
+Listes:
+1h): Lista apo kathe stoixeio tou wallet h opoia periexei ta coins ta opoia exei sth katoxi tou o kathe user.
+Einai mia lista me kefalh(CoinListHeader), dypla syndedemenh me stoixeia CoinElement.
+Kathe CoinElement exei enan pointer pros ena fyllo tou dentrou.
+
+2h)&3h):Oi listes pou zhtountai sthn askhsh.Listes pou arxizoun apo ta buckets me stoixeia UsToTran.
+Kathe stoixeio UsToTran exei enan deitkh pros ena Transaction.
+
+Dentro:
+Kathe dentro apoteleitai apo stoixeia Leaf.Kathe TreeElement exei stoixeia gia to coin kai deixnei to 1o Leaf kathe dentrou.
+Epeita, oso ginontai synalages, dhiourgountai filla dexia(enapomeinon poso tou sender) kai aristera(poso pou pairnei o receiver).
+H lista tou kathe user ananeonetai prokeimenou na deixnei ta swsta fylla ana coin.
+Kathe Leaf(ektos tou 1ou) tou dentrou deixnei to Transaction logw tou opoiou ftiaxtike.
+
+Phges kwdika: O perissoteros kwdikas vasizetai se palies mou ergasies gia mathimata ths sxolhs(kyriws Domes kai OS).
+Gia arketes synarthseis(px strtok,sprintf,time functions,getopt) symvouleutika ta parakatw sites:
+Tutorialspoint,Cplusplus,GeeksForGeeks,Stack Overflow.
+
+Perissoteres eksigiseis sta comments ths askhshs.
+Sygnwmh gia ta greeklish, kalh diorthwsh.
